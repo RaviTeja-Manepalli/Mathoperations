@@ -19,10 +19,6 @@ pipeline {
             steps {
                 bat 'mvn test'
             }
-            post {
-        always {
-            junit 'build/reports/**/*.xml'
-        }
         }
     
    
@@ -33,8 +29,14 @@ pipeline {
                 
             }
         }
+     post {
+        always {
+            junit 'build/reports/**/*.xml'
+        }
+        }
+
          
-    }
+    
        
         stage( 'SonarQube analysis'){
             steps {

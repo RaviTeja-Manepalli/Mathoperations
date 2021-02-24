@@ -91,5 +91,20 @@ pipeline {
 
 
     }
+    post{
+        success{
+            echo 'I succeeded!'
+            mail to:'ravitejamanepalli47@gmail.com',
+            subject:"Pipeline Succeeded: ${currentBuild.fullDisplayName}",
+            body:"Built is success with ${env.BUILD_URL}"
+        }
+        failure{
+            echo 'I failed!'
+            mail to:'ravitejamanepalli47@gmail.com',
+            subject:"Pipeline Failed: ${currentBuild.fullDisplayName}",
+            body:"Built is failed with ${env.BUILD_URL}"
+        }
+
+    }
     
 }

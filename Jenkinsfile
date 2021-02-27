@@ -14,14 +14,14 @@ pipeline {
         stage('Build')
         {
              steps {
-                    bat 'mvn  compile'
+                    sh 'mvn  compile'
                 
             }
         }
 
         stage('Test') {
             steps {
-                bat 'mvn test'
+                sh 'mvn test'
             }
         }
     
@@ -29,7 +29,7 @@ pipeline {
        
         stage('Package') {
             steps {
-                    bat 'mvn  package'
+                    sh 'mvn  package'
                 
             }
         }
@@ -41,7 +41,7 @@ pipeline {
         stage( 'SonarQube analysis'){
             steps {
               withSonarQubeEnv('sonarjenkins') {
-                bat 'mvn sonar:sonar'
+                sh 'mvn sonar:sonar'
               }
             }
         }

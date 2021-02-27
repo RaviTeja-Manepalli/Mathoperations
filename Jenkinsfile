@@ -43,7 +43,7 @@ pipeline {
        
         stage( 'SonarQube analysis'){
             steps {
-              withSonarQubeEnv('localpassport') {
+              withSonarQubeEnv('sonarjenkins') {
                 bat 'mvn sonar:sonar'
               }
             }

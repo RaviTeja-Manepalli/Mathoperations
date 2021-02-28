@@ -23,17 +23,17 @@ pipeline {
             }
         }*/
 
-       /* stage('Test') {
+       stage('Test') {
             steps {
                 bat 'mvn test'
             }
-        }*/
+        }
     
    
        
         stage('Package') {
             steps {
-                    sh 'mvn  package'
+                    bat 'mvn  package'
                 
             }
         }

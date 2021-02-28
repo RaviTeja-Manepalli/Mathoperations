@@ -1,6 +1,7 @@
 pipeline {
     agent any
     tools{
+        maven 'Maven'
         
         jdk 'JDK'
     }
@@ -41,7 +42,7 @@ pipeline {
          
     
        
-        stage( 'SonarQube analysis'){
+        /*stage( 'SonarQube analysis'){
             steps {
                 
               withSonarQubeEnv('sonarcloud') {
@@ -106,6 +107,6 @@ pipeline {
             body:"Built is failed with ${env.BUILD_URL}"
         }
 
-    }
+    }*/
     
 }

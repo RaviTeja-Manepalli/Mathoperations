@@ -3,28 +3,46 @@
   <groupId>com.mindtree.mathoperations</groupId>
   <artifactId>Mathoperations</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-    <build>
-  <pluginManagement>
+   <name>Mathoperations</name>
+  <url>http://maven.apache.org</url>
+   <properties>
+ <maven.compiler.source>1.8</maven.compiler.source>
+ <maven.compiler.target>1.8</maven.compiler.target>
+     <sonar.projectKey>RaviTeja-Manepalli_Mathoperations</sonar.projectKey>
+  <sonar.organization>raviteja</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
     <plugins>
-      <plugin>
+            <plugin>
         <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
         <version>3.7.0.1746</version>
       </plugin>
-    </plugins>
-  </pluginManagement>
-</build>
-  <properties>
- <maven.compiler.source>1.8</maven.compiler.source>
- <maven.compiler.target>1.8</maven.compiler.target>
-</properties>
-   <dependencies>
-<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>8.0.23</version>
-</dependency>
-</dependencies>  
 
-</project>
+      <plugin>
+        <!-- Build an executable JAR -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.0.2</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>com.mycompany.app.App</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project

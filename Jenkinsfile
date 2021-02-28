@@ -3,17 +3,18 @@ pipeline {
     tools{
         
         jdk 'JDK'
+        maven 'Maven'
     }
     
     stages {
         
-        stage('Clean')
+      /*  stage('Clean')
         {
              steps {
                     bat 'mvn  clean'
                 
             }
-        }
+        }*/
         /*stage('Build')
         {
              steps {
@@ -43,7 +44,7 @@ pipeline {
        
         stage( 'SonarQube analysis'){
             steps {
-              withSonarQubeEnv('cloud') {
+              withSonarQubeEnv('sonarcloud') {
                 bat 'mvn sonar:sonar'
               }
             }

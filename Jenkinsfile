@@ -46,7 +46,7 @@ pipeline {
             steps {
                 
               withSonarQubeEnv('sonarcloud') {
-                bat sonar:sonar
+                bat 'mvn sonar:sonar'
               }
             }
         }

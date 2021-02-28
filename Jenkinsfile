@@ -2,28 +2,27 @@ pipeline {
     agent any
     tools{
         maven 'Maven'
-        
         jdk 'JDK'
     }
     
     stages {
         
-      /*  stage('Clean')
+        stage('Clean')
         {
              steps {
                     bat 'mvn  clean'
                 
             }
-        }*/
-        /*stage('Build')
+        }
+        stage('Build')
         {
              steps {
                     bat 'mvn  compile'
                 
             }
-        }*/
+        }
 
-       stage('Test') {
+        stage('Test') {
             steps {
                 bat 'mvn test'
             }
@@ -42,10 +41,9 @@ pipeline {
          
     
        
-        /*stage( 'SonarQube analysis'){
+        stage( 'SonarQube analysis'){
             steps {
-                
-              withSonarQubeEnv('sonarcloud') {
+              withSonarQubeEnv('localpassport') {
                 bat 'mvn sonar:sonar'
               }
             }
@@ -107,6 +105,6 @@ pipeline {
             body:"Built is failed with ${env.BUILD_URL}"
         }
 
-    }*/
+    }
     
 }

@@ -14,13 +14,13 @@ pipeline {
                 
             }
         }
-        stage('Build')
+        /*stage('Build')
         {
              steps {
                     bat 'mvn  compile'
                 
             }
-        }
+        }*/
 
         stage('Test') {
             steps {

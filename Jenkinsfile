@@ -2,29 +2,29 @@ pipeline {
     agent any
     tools{
         maven 'Maven'
+        jdk 'JDK'
     }
-   
     
     stages {
         
         stage('Clean')
         {
              steps {
-                    sh 'mvn  clean'
+                    bat 'mvn  clean'
                 
             }
         }
         stage('Build')
         {
              steps {
-                    sh 'mvn  compile'
+                    bat 'mvn  compile'
                 
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
     
@@ -32,7 +32,7 @@ pipeline {
        
         stage('Package') {
             steps {
-                    sh 'mvn  package'
+                    bat 'mvn  package'
                 
             }
         }
@@ -43,8 +43,8 @@ pipeline {
        
         stage( 'SonarQube analysis'){
             steps {
-              withSonarQubeEnv('sonarjenkins') {
-                sh 'mvn sonar:sonar'
+              withSonarQubeEnv('localpassport') {
+                bat 'mvn sonar:sonar'
               }
             }
         }

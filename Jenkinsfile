@@ -23,11 +23,11 @@ pipeline {
             }
         }*/
 
-        stage('Test') {
+       /* stage('Test') {
             steps {
                 bat 'mvn test'
             }
-        }
+        }*/
     
    
        
@@ -44,8 +44,9 @@ pipeline {
        
         stage( 'SonarQube analysis'){
             steps {
+                
               withSonarQubeEnv('sonarcloud') {
-                bat 'mvn sonar:sonar'
+                bat sonar:sonar
               }
             }
         }

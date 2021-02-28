@@ -3,18 +3,6 @@
   <groupId>com.mindtree.mathoperations</groupId>
   <artifactId>MathOperations</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <build>
-  <pluginManagement>
-      <plugins>
-       <plugin>
-        <groupId>org.sonarsource.scanner.maven</groupId>
-        <artifactId>sonar-maven-plugin</artifactId>
-        <version>3.7.0.1746</version>
-      </plugin>
-    </plugins>
-  </pluginManagement>
-
-  
     <dependencies>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
 <dependency>
@@ -23,11 +11,19 @@
     <version>4.13.1</version>
     <scope>test</scope>
 </dependency>
-      <!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
-
 </dependencies> 
 
-
+<build>
+  <pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.7.0.1746</version>
+      </plugin>
+    </plugins>
+  </pluginManagement>
+</build>
  <properties>
  <maven.compiler.source>1.8</maven.compiler.source>
  <maven.compiler.target>1.8</maven.compiler.target>

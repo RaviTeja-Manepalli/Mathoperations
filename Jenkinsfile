@@ -14,7 +14,7 @@ pipeline {
                 
             }
         }
-        stage('Build')
+      /*  stage('Build')
         {
              steps {
                     bat 'mvn  compile'
@@ -27,7 +27,7 @@ pipeline {
                 bat 'mvn test'
             }
         }
-    
+    */
    
        
         stage('Package') {
@@ -65,7 +65,7 @@ pipeline {
 
         stage('collect artifact'){
      steps{
-     archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
+     archiveArtifacts artifacts: '/*.jar', followSymlinks: false
      }
      }
      stage('deploy to artifactory')
@@ -77,7 +77,7 @@ pipeline {
     spec: '''{
           "files": [
             {
-              "pattern": "target/*.jar",
+              "pattern": "/*.jar",
               "target": "arti-maven-dev-loc"
             }
          ]

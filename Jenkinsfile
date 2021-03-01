@@ -99,7 +99,7 @@ pipeline {
             body:"Built is success with ${env.BUILD_URL}"
             
              sshagent(['018f2730-23a7-4486-aeaf-3da5e807c0fa']){
-                    bat 'scp -r target/*.jar ubuntu@35.154.210.49:/home/ubuntu/artifacts'
+                    bat 'scp -r C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/Math Operations/target/*.jar ubuntu@35.154.210.49:/home/ubuntu/artifacts'
         }
         
         }

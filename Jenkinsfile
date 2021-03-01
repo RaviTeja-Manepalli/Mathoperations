@@ -97,6 +97,11 @@ pipeline {
             mail to:'ravitejamanepalli47@gmail.com',
             subject:"Pipeline Succeeded: ${currentBuild.fullDisplayName}",
             body:"Built is success with ${env.BUILD_URL}"
+            
+             sshagent(['018f2730-23a7-4486-aeaf-3da5e807c0fa']){
+                    bat 'scp -r target/*.jar ubuntu@35.154.210.49:/home/ubuntu/artifacts'
+        }
+        
         }
         failure{
             echo 'I failed!'

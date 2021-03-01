@@ -73,19 +73,19 @@ pipeline {
      steps{
      
      rtUpload (
-    serverId: 'ARTIFACTORY_SERVER',
-    spec: '''{
+             serverId: 'ARTIFACTORY_SERVER',
+      spec: '''{
           "files": [
             {
-              "pattern": "/*.jar",
+               "pattern": "target/*.jar",
               "target": "arti-maven-dev-loc"
             }
          ]
     }''',
  
   
-    buildName: 'Math Operation',
-    buildNumber: '42'
+    //buildName: 'Math Operation',
+   // buildNumber: '42'
 )
      }}
 

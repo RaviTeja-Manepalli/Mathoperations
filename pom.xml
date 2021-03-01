@@ -2,9 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.mindtree.mathoperations</groupId>
   <artifactId>Mathoperations</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
-   <name>Mathoperations</name>
-  <url>http://maven.apache.org</url>
+  <version>0.0.1-SNAPSHOT</version>
    <properties>
  <maven.compiler.source>1.8</maven.compiler.source>
  <maven.compiler.target>1.8</maven.compiler.target>

@@ -78,7 +78,7 @@ pipeline {
           "files": [
             {
                "pattern": "target/*.jar",
-              "target": "arti-maven-dev-loc"
+              "target": "arti-maven-dev-loc/"
             }
          ]
     }''',

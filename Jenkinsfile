@@ -14,21 +14,21 @@ pipeline {
         stage('Clean')
         {
              steps {
-                    bat 'mvn  clean'
+                    sh 'mvn  clean'
                 
             }
         }
        stage('Build')
         {
              steps {
-                    bat 'mvn  compile'
+                    sh 'mvn  compile'
                 
             }
         }
 
         stage('Test') {
             steps {
-                bat 'mvn test'
+                sh 'mvn test'
             }
         }
     
@@ -36,7 +36,7 @@ pipeline {
        
         stage('Package') {
             steps {
-                    bat 'mvn  package'
+                    sh 'mvn  package'
                 
             }
         }
@@ -48,7 +48,7 @@ pipeline {
         stage( 'SonarQube analysis'){
             steps {
               withSonarQubeEnv('sonar') {
-                bat 'mvn sonar:sonar'
+                sh 'mvn sonar:sonar'
               }
             }
         }
@@ -112,7 +112,7 @@ pipeline {
             body:"Built is success with ${env.BUILD_URL}"
             
              sshagent(['351279ad-c9c0-4745-a8dc-344733d7b8f2']){
-                    bat 'scp -r C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/Math Operations/target/*.jar ubuntu@13.126.108.30:/home/ubuntu/artifacts'
+                    sh 'scp -r C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/Math Operations/target/*.jar ubuntu@13.126.108.30:/home/ubuntu/artifacts'
         }
         
         }

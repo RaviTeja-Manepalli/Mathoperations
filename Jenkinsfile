@@ -18,7 +18,7 @@ pipeline {
                 
             }
         }
-      /*  stage('Build')
+       stage('Build')
         {
              steps {
                     bat 'mvn  compile'
@@ -31,7 +31,7 @@ pipeline {
                 bat 'mvn test'
             }
         }
-    */
+    
    
        
         stage('Package') {

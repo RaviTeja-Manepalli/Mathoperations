@@ -76,7 +76,7 @@ pipeline {
            steps{
                   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'a5a4b59e-2298-426c-8065-45eb47c1eef2', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                   s3Upload(file:'C:/Users/roshe/.jenkins/workspace/AwsChallenge/CodingChallenge-2/target/sportApplication-0.0.1-SNAPSHOT.jar', bucket:'1-challenge-s3', path:'sampleFile/sportApplication-0.0.1-SNAPSHOT.jar')
-    // some block
+   
  }
          }
             }      
@@ -97,8 +97,8 @@ pipeline {
     }''',
  
   
-    //buildName: 'Math Operation',
-   // buildNumber: '42'
+    buildName: 'Math Operation',
+    buildNumber: '42'
 )
      }}
 

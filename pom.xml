@@ -6,7 +6,7 @@
    <properties>
  <maven.compiler.source>1.8</maven.compiler.source>
  <maven.compiler.target>1.8</maven.compiler.target>
-  <sonar.projectKey>mathkey</sonar.projectKey>
+  <sonar.projectKey>RaviTeja-Manepalli_Mathoperations</sonar.projectKey>
   <sonar.organization>raviteja</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 </properties>

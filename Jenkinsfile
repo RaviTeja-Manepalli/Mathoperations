@@ -90,7 +90,7 @@ pipeline {
                )
            }
         }*/
-     
+    }
       post{
         success{
             echo 'I succeeded!'
@@ -110,7 +110,6 @@ pipeline {
             subject:"Pipeline Failed: ${currentBuild.fullDisplayName}",
             body:"Built is failed with ${env.BUILD_URL}"
          }
-    }
     }
       
     }

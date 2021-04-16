@@ -1,9 +1,6 @@
 pipeline {
     agent any
-        environment{
-         AWS_REGION='ap-south-1'	
-         AWS_DEFAULT_REGION='ap-south-1'
-        }
+       
          tools{
         maven 'maven'
         jdk 'JDK'
@@ -93,11 +90,8 @@ pipeline {
                )
            }
         }*/
-
-
-    }
-
-    post{
+     
+      post{
         success{
             echo 'I succeeded!'
             mail to:'ravitejamanepalli47@gmail.com',
@@ -118,5 +112,8 @@ pipeline {
         }
 
     }
-    
+
+        
+    }
+
 }

@@ -102,7 +102,7 @@ pipeline {
                  sh "ssh -o StrictHostKeyChecking=no ubuntu@13.126.108.30  'echo $HOME'"
                  sh 'scp -r /var/jenkins_home/workspace/Mathoperations/target/Mathoperations-0.0.1-SNAPSHOT.jar ubuntu@13.126.108.30:/home/ubuntu/artifacts'
             }*/
-        
+        }
         }
         failure{
             echo 'I failed!'

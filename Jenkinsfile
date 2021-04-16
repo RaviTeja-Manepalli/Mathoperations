@@ -5,7 +5,7 @@ pipeline {
          AWS_DEFAULT_REGION='ap-south-1'
         }*/
          tools{
-        maven 'Maven'
+        maven 'maven'
         jdk 'JDK'
         }
      

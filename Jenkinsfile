@@ -78,7 +78,7 @@ pipeline {
            steps{
 
                withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'deploys3', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
-               s3Upload(file:'**/target/Mathoperations-0.0.1-SNAPSHOT.jar', bucket:'myjenkinss3', path:'sampleFile/Mathoperations-0.0.1-SNAPSHOT.jar')
+               s3Upload(file:'target/Mathoperations-0.0.1-SNAPSHOT.jar', bucket:'myjenkinss3', path:'sampleFile/*.jar')
 
               }
                 /*  withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'a5a4b59e-2298-426c-8065-45eb47c1eef2', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {

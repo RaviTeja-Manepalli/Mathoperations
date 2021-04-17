@@ -94,8 +94,9 @@ pipeline {
         stage('Deploy to S3 Bucket'){
                 steps{
                     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'deploys3', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                        s3Upload(file:'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/Math Operations/target/MathOperations-0.0.1-SNAPSHOT.jar', bucket:'myjenkinss3', path:'sampleFile/MathOperations-0.0.1-SNAPSHOT.jar')
-          }
+                        s3Upload file:'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/Math Operations/target/MathOperations-0.0.1-SNAPSHOT.jar', bucket:'myjenkinss3', path:'sampleFile/MathOperations-0.0.1-SNAPSHOT.jar'
+                        //s3Upload(file:'C:/Users/roshe/.jenkins/workspace/AwsChallenge/CodingChallenge-2/target/sportApplication-0.0.1-SNAPSHOT.jar', bucket:'myassignment2021', path:'sampleFile/sportApplication-0.0.1-SNAPSHOT.jar')
+                    }
                 }
             }      
 

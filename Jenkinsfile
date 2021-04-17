@@ -90,8 +90,16 @@ pipeline {
                )
            }
         }*/
-    }
-      post{
+         
+        stage('Deploy to S3 Bucket'){
+                steps{
+                    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'deploys3', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                        s3Upload(file:'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/Math Operations/target/*.jar', bucket:'myjenkinss3', path:'sampleFile/*.jar')
+}
+                }
+            }      
+
+        post{
         success{
             echo 'I succeeded!'
             mail to:'ravitejamanepalli47@gmail.com',
@@ -111,6 +119,12 @@ pipeline {
             body:"Built is failed with ${env.BUILD_URL}"
          }
     }
-      
+     
+
+        
+    }
+    
+    
+     
     }
 

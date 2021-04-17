@@ -99,7 +99,7 @@ pipeline {
                 }
             }      
 
-        post{
+       /* post{
         success{
             echo 'I succeeded!'
             mail to:'ravitejamanepalli47@gmail.com',
@@ -118,13 +118,10 @@ pipeline {
             subject:"Pipeline Failed: ${currentBuild.fullDisplayName}",
             body:"Built is failed with ${env.BUILD_URL}"
          }
-    }
-     
-
+    }*/
         
     }
-    
-    
+     
      
     }
 

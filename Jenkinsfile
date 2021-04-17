@@ -95,30 +95,30 @@ pipeline {
                 steps{
                     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'deploys3', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                         s3Upload(file:'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/Math Operations/target/*.jar', bucket:'myjenkinss3', path:'sampleFile/*.jar')
-}
+          }
                 }
             }      
 
-       /* post{
-        success{
-            echo 'I succeeded!'
-            mail to:'ravitejamanepalli47@gmail.com',
-            subject:"Pipeline Succeeded: ${currentBuild.fullDisplayName}",
-            body:"Built is success with ${env.BUILD_URL}"
+    //     post{
+    //     success{
+    //         echo 'I succeeded!'
+    //         mail to:'ravitejamanepalli47@gmail.com',
+    //         subject:"Pipeline Succeeded: ${currentBuild.fullDisplayName}",
+    //         body:"Built is success with ${env.BUILD_URL}"
             
-           /*  sshagent(['351279ad-c9c0-4745-a8dc-344733d7b8f2']){
-                 sh "ssh -o StrictHostKeyChecking=no ubuntu@13.126.108.30  'echo $HOME'"
-                 sh 'scp -r /var/jenkins_home/workspace/Mathoperations/target/Mathoperations-0.0.1-SNAPSHOT.jar ubuntu@13.126.108.30:/home/ubuntu/artifacts'
-            }*/
-        }
+    //          sshagent(['351279ad-c9c0-4745-a8dc-344733d7b8f2']){
+    //              sh "ssh -o StrictHostKeyChecking=no ubuntu@13.126.108.30  'echo $HOME'"
+    //              sh 'scp -r /var/jenkins_home/workspace/Mathoperations/target/Mathoperations-0.0.1-SNAPSHOT.jar ubuntu@13.126.108.30:/home/ubuntu/artifacts'
+    //         }
+    //     }
         
-        failure{
-            echo 'I failed!'
-            mail to:'ravitejamanepalli47@gmail.com',
-            subject:"Pipeline Failed: ${currentBuild.fullDisplayName}",
-            body:"Built is failed with ${env.BUILD_URL}"
-         }
-    }*/
+    //     failure{
+    //         echo 'I failed!'
+    //         mail to:'ravitejamanepalli47@gmail.com',
+    //         subject:"Pipeline Failed: ${currentBuild.fullDisplayName}",
+    //         body:"Built is failed with ${env.BUILD_URL}"
+    //      }
+    // }
         
     }
      

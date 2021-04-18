@@ -1,0 +1,72 @@
+pipeline{
+ agent any;
+ tools{
+     maven 'maven'
+     jdk 'JDK'
+ }
+  stages {
+    stage('Maven-Clean'){
+      steps{
+        sh 'mvn clean'
+      }
+    }
+    stage('Maven-Package'){
+        steps{
+        sh 'mvn package -DskipTests'
+        }
+    }
+   
+  
+  stage ('aritifactory') {
+  steps {
+          rtUpload (
+            serverId: 'ARTIFACTORY_SERVER',
+            spec: '''{
+                 "files": [
+                             {
+                                "pattern": "target/*.jar",
+                                "target": "art-doc-dev-loc/mindsapp/"
+                            }
+                        ]
+            }''',
+            )
+            }
+}
+stage ('aritifactory download') {
+  steps {
+          rtDownload (
+                 serverId: "ARTIFACTORY_SERVER",
+                spec:"""{
+                     "files": [
+                                {
+                                    "pattern": "art-doc-dev-loc/mindsapp/**",
+                                    "target": "artifacts/"      
+                                }
+                            ]
+              }"""
+            )
+            }
+            }
+            stage('upload to ec2')
+           {
+              steps{
+          sshagent(['3316db5c-8dd2-4c2d-bf0e-e4ea06d60f2d']){
+                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.14.53.49 pwd'
+                   sh 'scp -r C:/WINDOWS/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/challengeaws/artifacts/mindsapp/*.jar ubuntu@52.14.53.49:/home/ubuntu/artifacts'
+                     }
+              }
+           }
+          //sshagent(['3316db5c-8dd2-4c2d-bf0e-e4ea06d60f2d']){
+              //      bat 'scp -r C:/WINDOWS/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/challengeaws/artifacts/mindsapp/*.jar ubuntu@52.14.53.49:/home/ubuntu/artifacts/'
+       //   }
+
+          withAWS(region:'us-east-2',credentials:'70be04d1-2159-4bd2-bf81-ad29e92c201e') {
+                    s3Upload(file:'artifacts/mindsapp/*.jar', bucket:'keerthibucket', path:'artifacts/')
+          }
+
+         
+      }
+      
+
+  
+}
